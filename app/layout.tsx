@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diagnóstico Empresarial",
     description: "Diagnóstico estratégico de eficiencia y escalabilidad",
-    images: [{ url: '/og-image.png' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Diagnóstico Empresarial",
     description: "Diagnóstico estratégico de eficiencia y escalabilidad",
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
   },
 };
 

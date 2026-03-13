@@ -1,0 +1,265 @@
+import { FormData } from '@/types/form';
+import FieldWrapper from './FieldWrapper';
+import RadioGroup from './RadioGroup';
+import ScaleInput from './ScaleInput';
+
+interface Props {
+  data: FormData;
+  onChange: (key: keyof FormData, value: any) => void;
+}
+
+const inputStyle = {
+  background: 'rgba(255,255,255,0.05)',
+  border: '1px solid rgba(255,255,255,0.1)',
+  borderRadius: 10,
+  color: '#f1f5f9',
+  fontFamily: "'DM Sans', sans-serif",
+  fontSize: '0.875rem',
+  padding: '0.65rem 0.9rem',
+  width: '100%',
+  outline: 'none',
+  resize: 'vertical' as const,
+};
+
+const block = {
+  display: 'flex',
+  flexDirection: 'column' as const,
+  gap: '1.4rem',
+  padding: '1.5rem',
+  background: 'rgba(255,255,255,0.02)',
+  border: '1px solid rgba(255,255,255,0.06)',
+  borderRadius: 14,
+};
+
+const questionNumber = (n: string, color = '#a78bfa') => (
+  <div style={{
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    letterSpacing: '0.12em',
+    color,
+    fontFamily: "'DM Sans', sans-serif",
+    marginBottom: '-0.5rem',
+  }}>
+    {n}
+  </div>
+);
+
+const leastControlOptions = [
+  'Marketing',
+  'Ventas',
+  'Operaciones',
+  'Administracion',
+  'No estoy seguro',
+];
+
+const changeReadinessOptions = [
+  'Si, estoy listo',
+  'Depende del impacto',
+  'Preferiria cambios pequenos',
+  'No estoy seguro',
+];
+
+const stagnationFeelingOptions = [
+  'Me daria tranquilidad',
+  'Me preocuparia bastante',
+  'Dependeria del area',
+  'Honestamente no lo se',
+];
+
+export default function FormPage6({ data, onChange }: Props) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+
+      {/* Intro */}
+      <div style={{
+        padding: '1.25rem 1.5rem',
+        background: 'rgba(167,139,250,0.06)',
+        border: '1px solid rgba(167,139,250,0.15)',
+        borderRadius: 14,
+      }}>
+        <p style={{
+          color: 'rgba(255,255,255,0.6)',
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '0.9rem',
+          lineHeight: 1.65,
+          margin: 0,
+        }}>
+          Esta ultima seccion no tiene respuestas correctas. Solo queremos entender como ves tu negocio desde adentro, sin filtros. Cuanto mas honesto seas, mas util sera el diagnostico.
+        </p>
+      </div>
+
+      {/* Q1 */}
+      <div style={block}>
+        {questionNumber('01')}
+        <FieldWrapper label="Si pudieras simplificar algo de tu negocio manana mismo, que seria?" hint="Lo primero que venga a la mente, sin filtrar">
+          <textarea
+            style={{ ...inputStyle, minHeight: 80 }}
+            placeholder="Ej. Eliminaria las reuniones de seguimiento que no sirven para nada y el proceso de aprobacion de facturas que pasa por tres personas antes de pagarse..."
+            rows={3}
+            value={(data as any).simplifyTomorrow ?? ''}
+            onChange={(e) => onChange('simplifyTomorrow' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q2 */}
+      <div style={block}>
+        {questionNumber('02')}
+        <FieldWrapper label="Que parte del negocio hoy te genera mas cansancio o frustracion?" hint="No hace falta que sea algo grande. A veces lo mas pequeño es lo que mas desgasta">
+          <textarea
+            style={{ ...inputStyle, minHeight: 80 }}
+            placeholder="Ej. Me cansa tener que estar en todo para que las cosas salgan bien. Si no lo superviso yo personalmente, algo siempre falla. Llevo anos intentando delegar y no lo consigo..."
+            rows={3}
+            value={(data as any).biggestFrustration ?? ''}
+            onChange={(e) => onChange('biggestFrustration' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q3 */}
+      <div style={block}>
+        {questionNumber('03')}
+        <FieldWrapper label="Hay algo que sientes que funciona, pero sabes que no esta bien del todo?" hint="Esas cosas que aguantan... hasta que dejan de aguantar">
+          <textarea
+            style={{ ...inputStyle, minHeight: 80 }}
+            placeholder="Ej. Las ventas funcionan porque yo las llevo personalmente, pero si me enfermo una semana se para todo. O los clientes estan contentos pero el margen real no lo conocemos bien..."
+            rows={3}
+            value={(data as any).worksButFragile ?? ''}
+            onChange={(e) => onChange('worksButFragile' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q4 */}
+      <div style={block}>
+        {questionNumber('04')}
+        <FieldWrapper label="Si todo siguiera exactamente igual durante los proximos 12 meses... eso te daria tranquilidad o te preocuparia?">
+          <RadioGroup
+            options={stagnationFeelingOptions}
+            value={(data as any).stagnationFeeling ?? ''}
+            onChange={(v) => onChange('stagnationFeeling' as any, v)}
+          />
+        </FieldWrapper>
+        <FieldWrapper label="Por que? Que hay detras de esa respuesta?" hint="Opcional pero muy util">
+          <textarea
+            style={{ ...inputStyle, minHeight: 72 }}
+            placeholder="Ej. Me preocuparia porque la competencia se esta moviendo rapido y si no hacemos nada en 12 meses perdemos posicion. O me daria tranquilidad porque ahora mismo lo prioritario es estabilizar..."
+            rows={3}
+            value={(data as any).stagnationContext ?? ''}
+            onChange={(e) => onChange('stagnationContext' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q5 */}
+      <div style={block}>
+        {questionNumber('05')}
+        <FieldWrapper label="En que area sientes que tienes menos control hoy?">
+          <RadioGroup
+            options={leastControlOptions}
+            value={(data as any).leastControl ?? ''}
+            onChange={(v) => onChange('leastControl' as any, v)}
+            columns={2}
+          />
+        </FieldWrapper>
+        <FieldWrapper label="Que ocurre exactamente en esa area que te genera esa sensacion de falta de control?">
+          <textarea
+            style={{ ...inputStyle, minHeight: 72 }}
+            placeholder="Ej. En administracion no se cuanto dinero tenemos realmente disponible hasta que el contable nos manda el informe mensual. Tomamos decisiones de inversion sin saber el estado real de la caja..."
+            rows={3}
+            value={(data as any).leastControlContext ?? ''}
+            onChange={(e) => onChange('leastControlContext' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q6 */}
+      <div style={block}>
+        {questionNumber('06')}
+        <FieldWrapper label="Que tendria que pasar para que digas: esta auditoria realmente valio la pena?" hint="Se concreto. Que resultado, que cambio, que claridad">
+          <textarea
+            style={{ ...inputStyle, minHeight: 80 }}
+            placeholder="Ej. Que salga con un mapa claro de donde estamos perdiendo dinero y tiempo, y con un orden de prioridades que pueda empezar a ejecutar la semana siguiente sin necesitar una consultora que me explique cada paso..."
+            rows={3}
+            value={(data as any).auditSuccessDef ?? ''}
+            onChange={(e) => onChange('auditSuccessDef' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Q7 */}
+      <div style={block}>
+        {questionNumber('07')}
+        <FieldWrapper label="Y siendo totalmente honesto... estas listo para hacer cambios si vemos que son necesarios?">
+          <RadioGroup
+            options={changeReadinessOptions}
+            value={(data as any).changeReadiness ?? ''}
+            onChange={(v) => onChange('changeReadiness' as any, v)}
+          />
+        </FieldWrapper>
+        <FieldWrapper label="Que condicion o contexto influye en esa respuesta?" hint="Opcional">
+          <textarea
+            style={{ ...inputStyle, minHeight: 60 }}
+            placeholder="Ej. Estoy listo si los cambios no requieren parar la operacion. O depende del coste, porque ahora mismo el presupuesto es limitado. O prefiero cambios graduales porque el equipo ya esta saturado..."
+            rows={2}
+            value={(data as any).changeReadinessContext ?? ''}
+            onChange={(e) => onChange('changeReadinessContext' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+      {/* Closing info */}
+      <div style={{
+        padding: '1.25rem 1.5rem',
+        background: 'rgba(167,139,250,0.04)',
+        border: '1px solid rgba(167,139,250,0.12)',
+        borderRadius: 14,
+        display: 'flex',
+        flexDirection: 'column' as const,
+        gap: '1rem',
+      }}>
+        <p style={{
+          color: 'rgba(255,255,255,0.5)',
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '0.8rem',
+          margin: 0,
+          letterSpacing: '0.04em',
+          textTransform: 'uppercase' as const,
+        }}>
+          Para enviarte el diagnostico
+        </p>
+
+        <FieldWrapper label="Correo electronico">
+          <input
+            type="email"
+            style={{ ...inputStyle, resize: undefined }}
+            placeholder="tu@empresa.com"
+            value={(data as any).contactEmail ?? ''}
+            onChange={(e) => onChange('contactEmail' as any, e.target.value)}
+          />
+        </FieldWrapper>
+
+        <FieldWrapper label="Nombre completo">
+          <input
+            type="text"
+            style={{ ...inputStyle, resize: undefined }}
+            placeholder="Como prefieres que te llamemos"
+            value={(data as any).contactName ?? ''}
+            onChange={(e) => onChange('contactName' as any, e.target.value)}
+          />
+        </FieldWrapper>
+
+        <FieldWrapper label="Horario preferido para una llamada con el equipo" hint="Opcional">
+          <input
+            type="text"
+            style={{ ...inputStyle, resize: undefined }}
+            placeholder="Ej. Mananas entre 10-12h, o tardes despues de las 16h"
+            value={(data as any).preferredCallTime ?? ''}
+            onChange={(e) => onChange('preferredCallTime' as any, e.target.value)}
+          />
+        </FieldWrapper>
+      </div>
+
+    </div>
+  );
+}

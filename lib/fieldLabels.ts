@@ -161,7 +161,7 @@ export const FIELD_LABELS: Record<keyof FormData, string> = {
   opsSuccessDesc: '¿Qué resultado justificaría esta auditoría de operaciones? ¿Cómo definirán el éxito?',
 
   // Página 6 – Visión estratégica
-  simplifyTomorrow: '¿Si pudieras simplificar algo de tu negocio mañana mismo, qué sería?',
+  simplifyTomorrow: 'Si pudieras simplificar algo de tu negocio mañana mismo, ¿qué sería?',
   biggestFrustration: '¿Qué parte del negocio hoy te genera más cansancio o frustración?',
   worksButFragile: '¿Hay algo que sientes que funciona, pero sabes que no está bien del todo?',
   stagnationFeeling: 'Si todo siguiera exactamente igual durante los próximos 12 meses... ¿eso te daría tranquilidad o te preocuparía?',

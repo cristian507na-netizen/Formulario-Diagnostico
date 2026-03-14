@@ -48,22 +48,22 @@ const leastControlOptions = [
   'Marketing',
   'Ventas',
   'Operaciones',
-  'Administracion',
+  'Administración',
   'No estoy seguro',
 ];
 
 const changeReadinessOptions = [
-  'Si, estoy listo',
+  'Sí, estoy listo',
   'Depende del impacto',
-  'Preferiria cambios pequenos',
+  'Preferiría cambios pequeños',
   'No estoy seguro',
 ];
 
 const stagnationFeelingOptions = [
-  'Me daria tranquilidad',
-  'Me preocuparia bastante',
-  'Dependeria del area',
-  'Honestamente no lo se',
+  'Me daría tranquilidad',
+  'Me preocuparía bastante',
+  'Dependería del área',
+  'Honestamente no lo sé',
 ];
 
 export default function FormPage6({ data, onChange }: Props) {
@@ -84,17 +84,17 @@ export default function FormPage6({ data, onChange }: Props) {
           lineHeight: 1.65,
           margin: 0,
         }}>
-          Esta ultima seccion no tiene respuestas correctas. Solo queremos entender como ves tu negocio desde adentro, sin filtros. Cuanto mas honesto seas, mas util sera el diagnostico.
+          Esta última sección no tiene respuestas correctas. Solo queremos entender cómo ves tu negocio desde adentro, sin filtros. Cuanto más honesto seas, más útil será el diagnóstico.
         </p>
       </div>
 
       {/* Q1 */}
       <div style={block}>
         {questionNumber('01')}
-        <FieldWrapper label="Si pudieras simplificar algo de tu negocio manana mismo, que seria?" hint="Lo primero que venga a la mente, sin filtrar">
+        <FieldWrapper label="Si pudieras simplificar algo de tu negocio mañana mismo, ¿qué sería?" hint="Lo primero que venga a la mente, sin filtrar">
           <textarea
             style={{ ...inputStyle, minHeight: 80 }}
-            placeholder="Ej. Eliminaria las reuniones de seguimiento que no sirven para nada y el proceso de aprobacion de facturas que pasa por tres personas antes de pagarse..."
+            placeholder="Ej. Eliminaría las reuniones de seguimiento que no sirven para nada y el proceso de aprobación de facturas que pasa por tres personas antes de pagarse..."
             rows={3}
             value={(data as any).simplifyTomorrow ?? ''}
             onChange={(e) => onChange('simplifyTomorrow' as any, e.target.value)}
@@ -105,10 +105,10 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q2 */}
       <div style={block}>
         {questionNumber('02')}
-        <FieldWrapper label="Que parte del negocio hoy te genera mas cansancio o frustracion?" hint="No hace falta que sea algo grande. A veces lo mas pequeño es lo que mas desgasta">
+        <FieldWrapper label="¿Qué parte del negocio hoy te genera más cansancio o frustración?" hint="No hace falta que sea algo grande. A veces lo más pequeño es lo que más desgasta">
           <textarea
             style={{ ...inputStyle, minHeight: 80 }}
-            placeholder="Ej. Me cansa tener que estar en todo para que las cosas salgan bien. Si no lo superviso yo personalmente, algo siempre falla. Llevo anos intentando delegar y no lo consigo..."
+            placeholder="Ej. Me cansa tener que estar en todo para que las cosas salgan bien. Si no lo superviso yo personalmente, algo siempre falla. Llevo años intentando delegar y no lo consigo..."
             rows={3}
             value={(data as any).biggestFrustration ?? ''}
             onChange={(e) => onChange('biggestFrustration' as any, e.target.value)}
@@ -119,10 +119,10 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q3 */}
       <div style={block}>
         {questionNumber('03')}
-        <FieldWrapper label="Hay algo que sientes que funciona, pero sabes que no esta bien del todo?" hint="Esas cosas que aguantan... hasta que dejan de aguantar">
+        <FieldWrapper label="¿Hay algo que sientes que funciona, pero sabes que no está bien del todo?" hint="Esas cosas que aguantan... hasta que dejan de aguantar">
           <textarea
             style={{ ...inputStyle, minHeight: 80 }}
-            placeholder="Ej. Las ventas funcionan porque yo las llevo personalmente, pero si me enfermo una semana se para todo. O los clientes estan contentos pero el margen real no lo conocemos bien..."
+            placeholder="Ej. Las ventas funcionan porque yo las llevo personalmente, pero si me enfermo una semana se para todo. O los clientes están contentos pero el margen real no lo conocemos bien..."
             rows={3}
             value={(data as any).worksButFragile ?? ''}
             onChange={(e) => onChange('worksButFragile' as any, e.target.value)}
@@ -133,17 +133,17 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q4 */}
       <div style={block}>
         {questionNumber('04')}
-        <FieldWrapper label="Si todo siguiera exactamente igual durante los proximos 12 meses... eso te daria tranquilidad o te preocuparia?">
+        <FieldWrapper label="Si todo siguiera exactamente igual durante los próximos 12 meses... ¿eso te daría tranquilidad o te preocuparía?">
           <RadioGroup
             options={stagnationFeelingOptions}
             value={(data as any).stagnationFeeling ?? ''}
             onChange={(v) => onChange('stagnationFeeling' as any, v)}
           />
         </FieldWrapper>
-        <FieldWrapper label="Por que? Que hay detras de esa respuesta?" hint="Opcional pero muy util">
+        <FieldWrapper label="¿Por qué? ¿Qué hay detrás de esa respuesta?" hint="Opcional pero muy útil">
           <textarea
             style={{ ...inputStyle, minHeight: 72 }}
-            placeholder="Ej. Me preocuparia porque la competencia se esta moviendo rapido y si no hacemos nada en 12 meses perdemos posicion. O me daria tranquilidad porque ahora mismo lo prioritario es estabilizar..."
+            placeholder="Ej. Me preocuparía porque la competencia se está moviendo rápido y si no hacemos nada en 12 meses perdemos posición. O me daría tranquilidad porque ahora mismo lo prioritario es estabilizar..."
             rows={3}
             value={(data as any).stagnationContext ?? ''}
             onChange={(e) => onChange('stagnationContext' as any, e.target.value)}
@@ -154,7 +154,7 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q5 */}
       <div style={block}>
         {questionNumber('05')}
-        <FieldWrapper label="En que area sientes que tienes menos control hoy?">
+        <FieldWrapper label="¿En qué área sientes que tienes menos control hoy?">
           <RadioGroup
             options={leastControlOptions}
             value={(data as any).leastControl ?? ''}
@@ -162,10 +162,10 @@ export default function FormPage6({ data, onChange }: Props) {
             columns={2}
           />
         </FieldWrapper>
-        <FieldWrapper label="Que ocurre exactamente en esa area que te genera esa sensacion de falta de control?">
+        <FieldWrapper label="¿Qué ocurre exactamente en esa área que te genera esa sensación de falta de control?">
           <textarea
             style={{ ...inputStyle, minHeight: 72 }}
-            placeholder="Ej. En administracion no se cuanto dinero tenemos realmente disponible hasta que el contable nos manda el informe mensual. Tomamos decisiones de inversion sin saber el estado real de la caja..."
+            placeholder="Ej. En administración no sé cuánto dinero tenemos realmente disponible hasta que el contable nos manda el informe mensual. Tomamos decisiones de inversión sin saber el estado real de la caja..."
             rows={3}
             value={(data as any).leastControlContext ?? ''}
             onChange={(e) => onChange('leastControlContext' as any, e.target.value)}
@@ -176,10 +176,10 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q6 */}
       <div style={block}>
         {questionNumber('06')}
-        <FieldWrapper label="Que tendria que pasar para que digas: esta auditoria realmente valio la pena?" hint="Se concreto. Que resultado, que cambio, que claridad">
+        <FieldWrapper label="¿Qué tendría que pasar para que digas: esta auditoría realmente valió la pena?" hint="Sé concreto. ¿Qué resultado, qué cambio, qué claridad?">
           <textarea
             style={{ ...inputStyle, minHeight: 80 }}
-            placeholder="Ej. Que salga con un mapa claro de donde estamos perdiendo dinero y tiempo, y con un orden de prioridades que pueda empezar a ejecutar la semana siguiente sin necesitar una consultora que me explique cada paso..."
+            placeholder="Ej. Que salga con un mapa claro de dónde estamos perdiendo dinero y tiempo, y con un orden de prioridades que pueda empezar a ejecutar la semana siguiente sin necesitar una consultora que me explique cada paso..."
             rows={3}
             value={(data as any).auditSuccessDef ?? ''}
             onChange={(e) => onChange('auditSuccessDef' as any, e.target.value)}
@@ -190,17 +190,17 @@ export default function FormPage6({ data, onChange }: Props) {
       {/* Q7 */}
       <div style={block}>
         {questionNumber('07')}
-        <FieldWrapper label="Y siendo totalmente honesto... estas listo para hacer cambios si vemos que son necesarios?">
+        <FieldWrapper label="Y siendo totalmente honesto... ¿estás listo para hacer cambios si vemos que son necesarios?">
           <RadioGroup
             options={changeReadinessOptions}
             value={(data as any).changeReadiness ?? ''}
             onChange={(v) => onChange('changeReadiness' as any, v)}
           />
         </FieldWrapper>
-        <FieldWrapper label="Que condicion o contexto influye en esa respuesta?" hint="Opcional">
+        <FieldWrapper label="¿Qué condición o contexto influye en esa respuesta?" hint="Opcional">
           <textarea
             style={{ ...inputStyle, minHeight: 60 }}
-            placeholder="Ej. Estoy listo si los cambios no requieren parar la operacion. O depende del coste, porque ahora mismo el presupuesto es limitado. O prefiero cambios graduales porque el equipo ya esta saturado..."
+            placeholder="Ej. Estoy listo si los cambios no requieren parar la operación. O depende del coste, porque ahora mismo el presupuesto es limitado. O prefiero cambios graduales porque el equipo ya está saturado..."
             rows={2}
             value={(data as any).changeReadinessContext ?? ''}
             onChange={(e) => onChange('changeReadinessContext' as any, e.target.value)}
@@ -226,10 +226,10 @@ export default function FormPage6({ data, onChange }: Props) {
           letterSpacing: '0.04em',
           textTransform: 'uppercase' as const,
         }}>
-          Para enviarte el diagnostico
+          Para enviarte el diagnóstico
         </p>
 
-        <FieldWrapper label="Correo electronico">
+        <FieldWrapper label="Correo electrónico">
           <input
             type="email"
             style={{ ...inputStyle, resize: undefined }}
@@ -243,7 +243,7 @@ export default function FormPage6({ data, onChange }: Props) {
           <input
             type="text"
             style={{ ...inputStyle, resize: undefined }}
-            placeholder="Como prefieres que te llamemos"
+            placeholder="Cómo prefieres que te llamemos"
             value={(data as any).contactName ?? ''}
             onChange={(e) => onChange('contactName' as any, e.target.value)}
           />
@@ -253,7 +253,7 @@ export default function FormPage6({ data, onChange }: Props) {
           <input
             type="text"
             style={{ ...inputStyle, resize: undefined }}
-            placeholder="Ej. Mananas entre 10-12h, o tardes despues de las 16h"
+            placeholder="Ej. Mañanas entre 10-12h, o tardes después de las 16h"
             value={(data as any).preferredCallTime ?? ''}
             onChange={(e) => onChange('preferredCallTime' as any, e.target.value)}
           />

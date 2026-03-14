@@ -20,10 +20,10 @@ const inputStyle = {
   resize: 'vertical' as const,
 };
 
-const teamSizes = ['Solo yo', '2-5 personas', '6-20 personas', '21-50 personas', 'Mas de 50'];
-const businessStages = ['Arrancando (menos de 1 año)', 'Creciendo (1-3 años)', 'Consolidando (3-7 años)', 'Expandiendo (mas de 7 años)'];
-const sectors = ['Servicios profesionales', 'Tecnologia / SaaS', 'Retail / Comercio', 'Salud / Bienestar', 'Educacion / Formacion', 'Construccion / Inmobiliaria', 'Hosteleria / Restauracion', 'Industria / Manufactura', 'Otro'];
-const founderDependency = ['Todo depende de mi', 'La mayoria pasa por mi', 'Tengo equipo que gestiona areas', 'Tengo direccion delegada'];
+const teamSizes = ['Solo yo', '2-5 personas', '6-20 personas', '21-50 personas', 'Más de 50'];
+const businessStages = ['Arrancando (menos de 1 año)', 'Creciendo (1-3 años)', 'Consolidando (3-7 años)', 'Expandiendo (más de 7 años)'];
+const sectors = ['Servicios profesionales', 'Tecnología / SaaS', 'Retail / Comercio', 'Salud / Bienestar', 'Educación / Formación', 'Construcción / Inmobiliaria', 'Hostelería / Restauración', 'Industria / Manufactura', 'Otro'];
+const founderDependency = ['Todo depende de mí', 'La mayoría pasa por mí', 'Tengo equipo que gestiona áreas', 'Tengo dirección delegada'];
 
 export default function FormPage1({ data, onChange }: Props) {
   return (
@@ -38,10 +38,10 @@ export default function FormPage1({ data, onChange }: Props) {
         />
       </FieldWrapper>
 
-      <FieldWrapper label="Nombre y cargo de quien completa este diagnostico">
+      <FieldWrapper label="Nombre y cargo de quien completa este diagnóstico">
         <input
           style={inputStyle}
-          placeholder="Ej. Maria Garcia, Directora General"
+          placeholder="Ej. María García, Directora General"
           value={data.contactName}
           onChange={(e) => onChange('contactName', e.target.value)}
         />
@@ -51,15 +51,15 @@ export default function FormPage1({ data, onChange }: Props) {
         <RadioGroup options={sectors} value={data.sector ?? ''} onChange={(v) => onChange('sector', v)} columns={2} />
       </FieldWrapper>
 
-      <FieldWrapper label="En que etapa se encuentra su empresa?">
+      <FieldWrapper label="¿En qué etapa se encuentra su empresa?">
         <RadioGroup options={businessStages} value={data.businessStage ?? ''} onChange={(v) => onChange('businessStage', v)} />
       </FieldWrapper>
 
-      <FieldWrapper label="Cuantas personas forman parte del equipo?">
+      <FieldWrapper label="¿Cuántas personas forman parte del equipo?">
         <RadioGroup options={teamSizes} value={data.teamSize} onChange={(v) => onChange('teamSize', v)} columns={2} />
       </FieldWrapper>
 
-      <FieldWrapper label="Facturacion anual aproximada" hint="Orientativo - ayuda a dimensionar el diagnostico">
+      <FieldWrapper label="Facturación anual aproximada" hint="Orientativo - ayuda a dimensionar el diagnóstico">
         <input
           style={inputStyle}
           placeholder="Ej. 250.000 €"
@@ -68,31 +68,31 @@ export default function FormPage1({ data, onChange }: Props) {
         />
       </FieldWrapper>
 
-      <FieldWrapper label="Ya tienen procesos automatizados?" hint="Describa brevemente cuales">
+      <FieldWrapper label="¿Ya tienen procesos automatizados?" hint="Describa brevemente cuáles">
         <textarea
           style={{ ...inputStyle, minHeight: 80 }}
-          placeholder="Ej. Si usamos una herramienta para guardar datos automaticos y otra para hacer imagenes"
+          placeholder="Ej. Sí, usamos una herramienta para guardar datos automáticos y otra para hacer imágenes"
           rows={3}
           value={data.automatedProcesses}
           onChange={(e) => onChange('automatedProcesses', e.target.value)}
         />
       </FieldWrapper>
 
-      <FieldWrapper label="A que se dedica su empresa?" hint="Describa su modelo de negocio y a quien ayuda">
+      <FieldWrapper label="¿A qué se dedica su empresa?" hint="Describa su modelo de negocio y a quién ayuda">
         <textarea
           style={{ ...inputStyle, minHeight: 80 }}
-          placeholder="Ej. Ofrecemos servicios de consultoria a pymes del sector retail..."
+          placeholder="Ej. Ofrecemos servicios de consultoría a pymes del sector retail..."
           rows={3}
           value={data.businessDescription}
           onChange={(e) => onChange('businessDescription', e.target.value)}
         />
       </FieldWrapper>
 
-      <FieldWrapper label="Que parte del negocio depende directamente de usted?" hint="Piense en que pasaria si no estuviera disponible 2 semanas">
+      <FieldWrapper label="¿Qué parte del negocio depende directamente de usted?" hint="Piense en qué pasaría si no estuviera disponible 2 semanas">
         <RadioGroup options={founderDependency} value={data.founderDependency ?? ''} onChange={(v) => onChange('founderDependency', v)} />
       </FieldWrapper>
 
-      <FieldWrapper label="Cual es el principal problema que frena el crecimiento hoy?" hint="Sea directo - no hay respuesta incorrecta">
+      <FieldWrapper label="¿Cuál es el principal problema que frena el crecimiento hoy?" hint="Sea directo - no hay respuesta incorrecta">
         <textarea
           style={{ ...inputStyle, minHeight: 64 }}
           placeholder="Ej. No tenemos procesos claros y todo depende de las mismas personas..."
@@ -102,10 +102,10 @@ export default function FormPage1({ data, onChange }: Props) {
         />
       </FieldWrapper>
 
-      <FieldWrapper label="Que deberia estar funcionando mejor en 6 meses?">
+      <FieldWrapper label="¿Qué debería estar funcionando mejor en 6 meses?">
         <textarea
           style={{ ...inputStyle, minHeight: 64 }}
-          placeholder="Ej. Ventas no deberia depender de mi para cerrar..."
+          placeholder="Ej. Ventas no debería depender de mí para cerrar..."
           rows={2}
           value={data.priorityImprovement}
           onChange={(e) => onChange('priorityImprovement', e.target.value)}

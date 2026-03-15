@@ -181,13 +181,6 @@ export default function FormPage5({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No. Si contratáramos a alguien nuevo tardaría meses en aprender porque nada está documentado. Todo el conocimiento está en las personas del equipo actual..." rows={2} value={(data as any).delegationReadinessDesc ?? ''} onChange={(e) => onChange('delegationReadinessDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Qué parte de la operación genera más retrabajo y qué les impide escalar?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El mayor retrabajo viene de briefings mal recogidos al inicio. Lo que más nos impide escalar es la dependencia del CEO en las validaciones..." rows={2} value={(data as any).opsScaleBlockerDesc ?? ''} onChange={(e) => onChange('opsScaleBlockerDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Qué resultado justificaría esta auditoría de operaciones? ¿Cómo definirán el éxito?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Éxito sería poder incorporar 5 clientes nuevos al mes sin caos, tener procesos documentados que cualquiera pueda seguir..." rows={2} value={(data as any).opsSuccessDesc ?? ''} onChange={(e) => onChange('opsSuccessDesc' as any, e.target.value)} />
-        </FieldWrapper>
       </div>
 
     </div>

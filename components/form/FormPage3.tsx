@@ -65,22 +65,26 @@ export default function FormPage3({ data, onChange }: Props) {
       </div>
 
       <div style={block}>
-        {blockTag('Flujo real de ventas')}
+        {blockTag('Flujo comercial')}
 
-        <FieldWrapper label="¿Por qué canales llegan los leads y dónde se centralizan?" hint="Describa el recorrido real desde que alguien muestra interés">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Llegan por Instagram y referidos, algunos entran al email general, otros directamente al WhatsApp del fundador y se pierden..." rows={3} value={data.leadFlowDesc ?? ''} onChange={(e) => onChange('leadFlowDesc', e.target.value)} />
+        <FieldWrapper label="Describa paso a paso qué ocurre desde que entra un lead hasta que se convierte en cliente" hint="Describa el recorrido real desde que alguien muestra interés">
+          <textarea style={{ ...inputStyle, minHeight: 80 }} placeholder="Ej. El lead llega por Instagram, alguien del equipo responde por DM, lo pasa a WhatsApp, se agenda una llamada, se envía cotización y si acepta se firma contrato por email..." rows={3} value={data.leadFlowStepByStep ?? ''} onChange={(e) => onChange('leadFlowStepByStep' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Por qué canales llegan los leads y dónde se centralizan?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Llegan por Instagram y referidos, algunos entran al email general, otros directamente al WhatsApp del fundador y se pierden..." rows={2} value={data.leadFlowDesc ?? ''} onChange={(e) => onChange('leadFlowDesc', e.target.value)} />
         </FieldWrapper>
 
         <FieldWrapper label="Tiempo de respuesta a un lead nuevo">
           <RadioGroup options={responseTime} value={data.responseTime ?? ''} onChange={(v) => onChange('responseTime', v)} columns={2} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo se asignan los leads al equipo?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay asignación formal, el que ve el mensaje lo atiende. A veces dos personas contactan al mismo lead..." rows={2} value={data.leadAssignment ?? ''} onChange={(e) => onChange('leadAssignment', e.target.value)} />
+        <FieldWrapper label="¿Cómo se asignan los leads y quién gestiona el primer contacto?" hint="Describa si hay un responsable definido o depende de quién esté disponible">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay asignación formal, el que ve el mensaje lo atiende. A veces dos personas contactan al mismo lead sin saberlo..." rows={2} value={data.leadAssignment ?? ''} onChange={(e) => onChange('leadAssignment', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo es el primer contacto con un prospecto? ¿Existe algún guión o proceso?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cada vendedor improvisa, no hay guión. El fundador tiene su propio estilo que funciona pero no está documentado..." rows={2} value={data.scriptExists ?? ''} onChange={(e) => onChange('scriptExists', e.target.value)} />
+        <FieldWrapper label="¿Existe algún guión o proceso para el primer contacto? ¿Dónde queda registrado ese contacto?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cada vendedor improvisa, no hay guión. El primer contacto queda en el chat de Instagram o WhatsApp de quien lo atendió, no en un sistema compartido..." rows={2} value={data.scriptExists ?? ''} onChange={(e) => onChange('scriptExists', e.target.value)} />
         </FieldWrapper>
 
         <FieldWrapper label="¿Cómo evalúan a un cliente potencial? ¿Qué criterios usan para decidir si vale la pena seguir?">
@@ -95,16 +99,16 @@ export default function FormPage3({ data, onChange }: Props) {
           <RadioGroup options={proposalTime} value={data.proposalTime ?? ''} onChange={(v) => onChange('proposalTime', v)} columns={2} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Saben si el cliente vio la cotización? ¿Cómo hacen seguimiento tras enviarla?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No sabemos si la abren. Hacemos seguimiento llamando a los 3-5 días pero sin sistema estructurado..." rows={2} value={data.proposalTracking ?? ''} onChange={(e) => onChange('proposalTracking', e.target.value)} />
+        <FieldWrapper label="¿Saben si el cliente vio la cotización? ¿Cómo hacen seguimiento si no responde?" hint="Describa el proceso real de seguimiento post-cotización">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No sabemos si la abren. Si no responden en 3-5 días llamamos, pero no hay un sistema estructurado y muchos leads quedan olvidados..." rows={2} value={data.proposalTracking ?? ''} onChange={(e) => onChange('proposalTracking', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="Para otorgarle información al cliente nuevo, pero no saben la respuesta, ¿dónde la buscan?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Le preguntamos al jefe o buscamos en conversaciones anteriores..." rows={2} value={data.discountAuth ?? ''} onChange={(e) => onChange('discountAuth', e.target.value)} />
+        <FieldWrapper label="¿En qué momento se considera que una venta está cerrada y cómo queda registrada?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cuando el cliente confirma por WhatsApp. El comercial actualiza HubSpot y avisa al equipo de operaciones, aunque a veces se pierde información en el traspaso..." rows={2} value={data.saleClosedCriteriaDesc ?? ''} onChange={(e) => onChange('saleClosedCriteriaDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Qué ocurre exactamente cuando se cierra una venta? ¿Cómo queda registrado y cómo se activa la entrega?">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. El comercial avisa por WhatsApp al equipo de delivery, se genera factura al día siguiente, pero a veces se pierde información en el traspaso..." rows={3} value={data.closingHandoffDesc ?? ''} onChange={(e) => onChange('closingHandoffDesc', e.target.value)} />
+        <FieldWrapper label="¿Pueden medir actualmente cuántos leads entran y cuántos terminan convirtiéndose en clientes?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No lo medimos con exactitud. Sabemos cuánto facturamos pero no cuántos leads perdemos ni en qué etapa del proceso..." rows={2} value={data.leadConversionTracking ?? ''} onChange={(e) => onChange('leadConversionTracking' as any, e.target.value)} />
         </FieldWrapper>
       </div>
 
@@ -157,42 +161,6 @@ export default function FormPage3({ data, onChange }: Props) {
 
         <FieldWrapper label="¿Dónde se registra la información de los leads o clientes potenciales?" hint="Indique si existe un sistema central o si la información está repartida en varias herramientas">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay un sistema central. Algunos leads están en HubSpot, otros en un Excel compartido y muchos solo en el WhatsApp o email de quien los atendió..." rows={2} value={data.leadRegistrationDesc ?? ''} onChange={(e) => onChange('leadRegistrationDesc' as any, e.target.value)} />
-        </FieldWrapper>
-      </div>
-
-      <div style={block}>
-        {blockTag('Flujo del lead (proceso de ventas)')}
-
-        <FieldWrapper label="Describa paso a paso qué ocurre desde que entra un lead hasta que se convierte en cliente">
-          <textarea style={{ ...inputStyle, minHeight: 80 }} placeholder="Ej. El lead llega por Instagram, alguien del equipo responde por DM, lo pasa a WhatsApp, se agenda una llamada, se envía cotización y si acepta se firma contrato por email..." rows={3} value={data.leadFlowStepByStep ?? ''} onChange={(e) => onChange('leadFlowStepByStep' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Quién gestiona el primer contacto con el lead?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Depende de por dónde llegue. Si es Instagram lo atiende quien esté conectado, si es por la web lo recibe el fundador directamente..." rows={2} value={data.firstContactOwner ?? ''} onChange={(e) => onChange('firstContactOwner' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Dónde se registra ese primer contacto?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No se registra formalmente. Queda en el chat de Instagram o en el WhatsApp de quien lo atendió, pero no en un sistema compartido..." rows={2} value={data.firstContactRegistration ?? ''} onChange={(e) => onChange('firstContactRegistration' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Qué ocurre después del primer contacto?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Se agenda una videollamada para entender la necesidad. Si hay interés, se prepara una cotización en 2-3 días y se envía por email..." rows={2} value={data.afterFirstContactDesc ?? ''} onChange={(e) => onChange('afterFirstContactDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Cómo se realiza el seguimiento si el lead no compra inmediatamente?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay un proceso formal. A veces el vendedor llama a los pocos días, otras veces el lead queda olvidado si no responde solo..." rows={2} value={data.noSaleFollowUpDesc ?? ''} onChange={(e) => onChange('noSaleFollowUpDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿En qué momento se considera que una venta está cerrada?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cuando el cliente confirma por WhatsApp o email. No siempre hay contrato firmado, a veces basta con la transferencia del pago inicial..." rows={2} value={data.saleClosedCriteriaDesc ?? ''} onChange={(e) => onChange('saleClosedCriteriaDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Dónde se registra esa venta dentro del sistema actual?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El comercial actualiza HubSpot y avisa por WhatsApp al equipo de operaciones. La factura la genera administración al día siguiente..." rows={2} value={data.saleRegistrationDesc ?? ''} onChange={(e) => onChange('saleRegistrationDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Pueden medir actualmente cuántos leads entran y cuántos terminan convirtiéndose en clientes?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No lo medimos con exactitud. Sabemos cuánto facturamos pero no cuántos leads perdemos ni en qué etapa del proceso..." rows={2} value={data.leadConversionTracking ?? ''} onChange={(e) => onChange('leadConversionTracking' as any, e.target.value)} />
         </FieldWrapper>
       </div>
 

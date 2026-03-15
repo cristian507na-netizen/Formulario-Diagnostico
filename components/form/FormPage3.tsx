@@ -147,16 +147,52 @@ export default function FormPage3({ data, onChange }: Props) {
       <div style={block}>
         {blockTag('Stack tecnológico comercial')}
 
-        <FieldWrapper label="¿Qué herramientas comerciales usan? CRM, agenda, firma, comunicación..." hint="Liste todas y describa si están integradas o funcionan en silos">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Usamos HubSpot pero solo el fundador lo actualiza, Calendly para reuniones, WhatsApp para todo lo demás. No están conectados entre sí..." rows={3} value={data.salesToolsDesc ?? ''} onChange={(e) => onChange('salesToolsDesc', e.target.value)} />
+        <FieldWrapper label="¿Qué herramientas utilizan para gestionar el proceso comercial?" hint="CRM, agenda, WhatsApp, email, firma de contratos, gestión de propuestas, etc.">
+          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Usamos HubSpot para el CRM, Calendly para agendar reuniones, WhatsApp para comunicación diaria y DocuSign para firmar contratos. No están conectados entre sí..." rows={3} value={data.salesToolsDesc ?? ''} onChange={(e) => onChange('salesToolsDesc', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="Nivel de adopción del CRM en el equipo">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Solo el fundador lo usa con regularidad. El resto del equipo lo ignora porque no ven el valor o les parece complicado..." rows={2} value={data.crmAdoption ?? ''} onChange={(e) => onChange('crmAdoption', e.target.value)} />
+        <FieldWrapper label="¿Estas herramientas están integradas entre sí o funcionan de forma independiente?" hint="Explique cómo se conecta la información entre ellas">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Funcionan de forma independiente. Cuando cerramos una venta en HubSpot, tenemos que actualizar manualmente el Excel de facturación y avisar al equipo por WhatsApp..." rows={2} value={data.toolsIntegrationDesc ?? ''} onChange={(e) => onChange('toolsIntegrationDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo fluye la información de un lead desde que entra hasta que se cierra? ¿Se duplica en varios sistemas?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El lead llega por Instagram, alguien lo apunta en Excel, luego se pasa a HubSpot a mano si se convierte en oportunidad..." rows={2} value={data.salesDataFlowDesc ?? ''} onChange={(e) => onChange('salesDataFlowDesc', e.target.value)} />
+        <FieldWrapper label="¿Dónde se registra la información de los leads o clientes potenciales?" hint="Indique si existe un sistema central o si la información está repartida en varias herramientas">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay un sistema central. Algunos leads están en HubSpot, otros en un Excel compartido y muchos solo en el WhatsApp o email de quien los atendió..." rows={2} value={data.leadRegistrationDesc ?? ''} onChange={(e) => onChange('leadRegistrationDesc' as any, e.target.value)} />
+        </FieldWrapper>
+      </div>
+
+      <div style={block}>
+        {blockTag('Flujo del lead (proceso de ventas)')}
+
+        <FieldWrapper label="Describa paso a paso qué ocurre desde que entra un lead hasta que se convierte en cliente">
+          <textarea style={{ ...inputStyle, minHeight: 80 }} placeholder="Ej. El lead llega por Instagram, alguien del equipo responde por DM, lo pasa a WhatsApp, se agenda una llamada, se envía cotización y si acepta se firma contrato por email..." rows={3} value={data.leadFlowStepByStep ?? ''} onChange={(e) => onChange('leadFlowStepByStep' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Quién gestiona el primer contacto con el lead?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Depende de por dónde llegue. Si es Instagram lo atiende quien esté conectado, si es por la web lo recibe el fundador directamente..." rows={2} value={data.firstContactOwner ?? ''} onChange={(e) => onChange('firstContactOwner' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Dónde se registra ese primer contacto?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No se registra formalmente. Queda en el chat de Instagram o en el WhatsApp de quien lo atendió, pero no en un sistema compartido..." rows={2} value={data.firstContactRegistration ?? ''} onChange={(e) => onChange('firstContactRegistration' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Qué ocurre después del primer contacto?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Se agenda una videollamada para entender la necesidad. Si hay interés, se prepara una cotización en 2-3 días y se envía por email..." rows={2} value={data.afterFirstContactDesc ?? ''} onChange={(e) => onChange('afterFirstContactDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Cómo se realiza el seguimiento si el lead no compra inmediatamente?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay un proceso formal. A veces el vendedor llama a los pocos días, otras veces el lead queda olvidado si no responde solo..." rows={2} value={data.noSaleFollowUpDesc ?? ''} onChange={(e) => onChange('noSaleFollowUpDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿En qué momento se considera que una venta está cerrada?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cuando el cliente confirma por WhatsApp o email. No siempre hay contrato firmado, a veces basta con la transferencia del pago inicial..." rows={2} value={data.saleClosedCriteriaDesc ?? ''} onChange={(e) => onChange('saleClosedCriteriaDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Dónde se registra esa venta dentro del sistema actual?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El comercial actualiza HubSpot y avisa por WhatsApp al equipo de operaciones. La factura la genera administración al día siguiente..." rows={2} value={data.saleRegistrationDesc ?? ''} onChange={(e) => onChange('saleRegistrationDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Pueden medir actualmente cuántos leads entran y cuántos terminan convirtiéndose en clientes?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No lo medimos con exactitud. Sabemos cuánto facturamos pero no cuántos leads perdemos ni en qué etapa del proceso..." rows={2} value={data.leadConversionTracking ?? ''} onChange={(e) => onChange('leadConversionTracking' as any, e.target.value)} />
         </FieldWrapper>
       </div>
 
@@ -175,16 +211,24 @@ export default function FormPage3({ data, onChange }: Props) {
       <div style={block}>
         {blockTag('Riesgo comercial')}
 
-        <FieldWrapper label="¿Se puede auditar o reconstruir el historial completo de cada deal?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Parcialmente. Si está en el CRM sí, pero muchas conversaciones ocurren por WhatsApp o email y no quedan registradas..." rows={2} value={data.dealAuditability ?? ''} onChange={(e) => onChange('dealAuditability', e.target.value)} />
+        <FieldWrapper label="¿Es posible ver el historial completo de una oportunidad o cliente?" hint="Por ejemplo: cuándo llegó el lead, quién habló con él, qué propuesta se envió y en qué estado está la venta">
+          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Parcialmente. Si todo está en HubSpot sí, pero muchas conversaciones ocurren por WhatsApp y no quedan registradas en ningún sistema..." rows={3} value={data.dealHistoryDesc ?? ''} onChange={(e) => onChange('dealHistoryDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Se comparten credenciales del CRM o herramientas comerciales?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Sí, el equipo comparte una cuenta de HubSpot porque no queremos pagar más licencias. No sabemos quién hace qué..." rows={2} value={data.crmCredentials ?? ''} onChange={(e) => onChange('crmCredentials', e.target.value)} />
+        <FieldWrapper label="¿Dónde quedan registradas las conversaciones con los clientes?" hint="CRM, WhatsApp, email, llamadas, notas internas, etc.">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Las conversaciones quedan repartidas: reuniones en el email, seguimientos en WhatsApp y solo las notas más importantes en HubSpot..." rows={2} value={data.conversationsRegistrationDesc ?? ''} onChange={(e) => onChange('conversationsRegistrationDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Hay riesgo de que alguien se vaya con la base de datos de clientes o prospectos?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Sí, cualquiera puede exportar el CRM completo. No hay controles de acceso ni registro de exportaciones..." rows={2} value={data.crmDataRisk ?? ''} onChange={(e) => onChange('crmDataRisk', e.target.value)} />
+        <FieldWrapper label="¿Toda la información del cliente está en un mismo sistema o está repartida en varias herramientas?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Está repartida. El contrato en Google Drive, la facturación en Excel, las conversaciones en WhatsApp y los datos básicos en HubSpot..." rows={2} value={data.dataIntegrationDesc ?? ''} onChange={(e) => onChange('dataIntegrationDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Si alguien del equipo deja la empresa, sería fácil continuar las conversaciones con sus clientes?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No, sería muy difícil. Toda la relación con el cliente está en su móvil personal y su cabeza. No hay registros accesibles para el resto del equipo..." rows={2} value={data.teamTransitionDesc ?? ''} onChange={(e) => onChange('teamTransitionDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
+        <FieldWrapper label="¿Quién tiene acceso a la base de datos de clientes y leads dentro del equipo?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Todos tienen acceso al CRM sin restricciones. Cualquiera puede ver, editar o exportar la base de datos completa sin que quede registro..." rows={2} value={data.dataAccessDesc ?? ''} onChange={(e) => onChange('dataAccessDesc' as any, e.target.value)} />
         </FieldWrapper>
       </div>
 

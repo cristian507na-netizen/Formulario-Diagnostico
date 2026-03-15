@@ -68,13 +68,23 @@ export interface FormData {
   followUpSystem: string;
   closeRate: string;
   salesToolsDesc: string;
-  crmAdoption: string;
-  salesDataFlowDesc: string;
+  toolsIntegrationDesc: string;
+  leadRegistrationDesc: string;
+  leadFlowStepByStep: string;
+  firstContactOwner: string;
+  firstContactRegistration: string;
+  afterFirstContactDesc: string;
+  noSaleFollowUpDesc: string;
+  saleClosedCriteriaDesc: string;
+  saleRegistrationDesc: string;
+  leadConversionTracking: string;
   salesMetricsDesc: string;
   revenueVisibility: string;
-  dealAuditability: string;
-  crmCredentials: string;
-  crmDataRisk: string;
+  dealHistoryDesc: string;
+  conversationsRegistrationDesc: string;
+  dataIntegrationDesc: string;
+  teamTransitionDesc: string;
+  dataAccessDesc: string;
   salesScaleDesc: string;
   salesScaleHiring: string;
   salesPainDesc: string;
@@ -187,9 +197,12 @@ export const initialFormData: FormData = Object.fromEntries(
     'absenceImpact30','leadFlowDesc','responseTime','leadAssignment','scriptExists',
     'qualificationDesc','proposalDesc','proposalTime','proposalTracking','discountAuth',
     'closingHandoffDesc','leadCoolDesc','salesTimeWaste','salesKnowledgeRisk','pipelineDesc',
-    'pipelineHealth','followUpSystem','closeRate','salesToolsDesc','crmAdoption',
-    'salesDataFlowDesc','salesMetricsDesc','revenueVisibility','dealAuditability','crmCredentials',
-    'crmDataRisk','salesScaleDesc','salesScaleHiring','salesPainDesc','salesCatastrophicRisk',
+    'pipelineHealth','followUpSystem','closeRate','salesToolsDesc','toolsIntegrationDesc',
+    'leadRegistrationDesc','leadFlowStepByStep','firstContactOwner','firstContactRegistration',
+    'afterFirstContactDesc','noSaleFollowUpDesc','saleClosedCriteriaDesc','saleRegistrationDesc',
+    'leadConversionTracking','salesMetricsDesc','revenueVisibility','dealHistoryDesc',
+    'conversationsRegistrationDesc','dataIntegrationDesc','teamTransitionDesc','dataAccessDesc',
+    'salesScaleDesc','salesScaleHiring','salesPainDesc','salesCatastrophicRisk',
     'salesGoal12m','salesSuccessDesc','valuePropositionDesc','differentiationDesc',
     'mktSalesAlignmentDesc','ticketCycleDesc','channelMapDesc','editorialCalendarDesc',
     'channelOwnershipDesc','channelRoiDesc','leadToSalesProcess','leadCaptureDesc',

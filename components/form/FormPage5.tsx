@@ -122,8 +122,8 @@ export default function FormPage5({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Los errores más frecuentes son datos incorrectos que el cliente detecta y errores de formato. Cada corrección nos cuesta entre 2 y 4 horas..." rows={3} value={(data as any).qualityErrorsDesc ?? ''} onChange={(e) => onChange('qualityErrorsDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Qué parte del trabajo genera más retrabajo interno? ¿Por qué se produce ese retrabajo?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. La fase de maquetación final genera más retrabajo porque el cliente pide cambios que no estaban en el brief inicial..." rows={2} value={(data as any).reworkCausesDesc ?? ''} onChange={(e) => onChange('reworkCausesDesc' as any, e.target.value)} />
+        <FieldWrapper label="¿Qué parte del trabajo genera más retraso interno? ¿Por qué se produce ese retraso?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. La fase de maquetación final genera más retraso porque el cliente pide cambios que no estaban en el brief inicial..." rows={2} value={(data as any).reworkCausesDesc ?? ''} onChange={(e) => onChange('reworkCausesDesc' as any, e.target.value)} />
         </FieldWrapper>
       </div>
 

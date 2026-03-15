@@ -83,19 +83,19 @@ export default function FormPage3({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Cada vendedor improvisa, no hay guión. El fundador tiene su propio estilo que funciona pero no está documentado..." rows={2} value={data.scriptExists ?? ''} onChange={(e) => onChange('scriptExists', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo califican si un prospecto es viable? ¿Qué criterios usan y quién decide si pasa a siguiente etapa?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No tenemos criterios formales, el vendedor decide por intuición. A veces calificamos por presupuesto disponible..." rows={2} value={data.qualificationDesc ?? ''} onChange={(e) => onChange('qualificationDesc', e.target.value)} />
+        <FieldWrapper label="¿Cómo evalúan a un cliente potencial? ¿Qué criterios usan para decidir si vale la pena seguir?">
+          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No tenemos criterios formales, el vendedor decide por intuición. A veces filtramos por presupuesto disponible o tamaño de empresa..." rows={2} value={data.qualificationDesc ?? ''} onChange={(e) => onChange('qualificationDesc', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo se genera una propuesta? ¿Hay plantilla, cuánto tarda y quién la aprueba internamente?">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Cada vendedor la hace desde cero en PowerPoint, tarda 2-3 días, no hay aprobación interna formal..." rows={3} value={data.proposalDesc ?? ''} onChange={(e) => onChange('proposalDesc', e.target.value)} />
+        <FieldWrapper label="¿Cómo se genera una cotización? ¿Hay plantilla, cuánto tarda y quién la aprueba internamente?">
+          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Cada vendedor la hace desde cero en Excel, tarda 2-3 días, no hay aprobación interna formal..." rows={3} value={data.proposalDesc ?? ''} onChange={(e) => onChange('proposalDesc', e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cuánto tiempo tarda en generarse una propuesta desde que se decide enviarla?">
+        <FieldWrapper label="¿Cuánto tiempo tarda en generarse una cotización desde que se decide enviarla?">
           <RadioGroup options={proposalTime} value={data.proposalTime ?? ''} onChange={(v) => onChange('proposalTime', v)} columns={2} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Saben si el cliente abrió la propuesta? ¿Cómo hacen seguimiento tras enviarla?">
+        <FieldWrapper label="¿Saben si el cliente vio la cotización? ¿Cómo hacen seguimiento tras enviarla?">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No sabemos si la abren. Hacemos seguimiento llamando a los 3-5 días pero sin sistema estructurado..." rows={2} value={data.proposalTracking ?? ''} onChange={(e) => onChange('proposalTracking', e.target.value)} />
         </FieldWrapper>
 

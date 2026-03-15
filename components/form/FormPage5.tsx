@@ -144,23 +144,6 @@ export default function FormPage5({ data, onChange }: Props) {
         </FieldWrapper>
       </div>
 
-      {/* BLOQUE 6 */}
-      <div style={block}>
-        {blockTag('Stack tecnológico de operaciones')}
-
-        <FieldWrapper label="¿Qué herramientas usan para gestionar proyectos, archivos, comunicación interna y comunicación con clientes? ¿Están integradas?">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Usamos Notion para documentación, Trello para tareas, Drive para archivos, Slack internamente y email con clientes. Nada está integrado..." rows={3} value={data.opsToolsDesc} onChange={(e) => onChange('opsToolsDesc', e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Cómo fluye la información del cliente a través de las herramientas? ¿Hay personas que hacen de puente manual entre sistemas?">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. El PM recibe el brief por email, lo copia a Notion, crea las tareas en Trello a mano y sube los archivos a Drive. Todo es manual..." rows={3} value={(data as any).opsDataFlowDesc ?? ''} onChange={(e) => onChange('opsDataFlowDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Hay herramientas duplicadas o datos que se introducen en más de un sistema por separado?">
-          <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El estado de cada proyecto está en Trello, en el Excel del CEO y en las actualizaciones de Slack. Hay tres versiones diferentes y a veces están desincronizadas..." rows={2} value={(data as any).toolOverlapOpsDesc ?? ''} onChange={(e) => onChange('toolOverlapOpsDesc' as any, e.target.value)} />
-        </FieldWrapper>
-      </div>
-
       {/* BLOQUE 7 */}
       <div style={block}>
         {blockTag('Experiencia del cliente')}

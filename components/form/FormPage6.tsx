@@ -248,16 +248,6 @@ export default function FormPage6({ data, onChange }: Props) {
             onChange={(e) => onChange('contactName' as any, e.target.value)}
           />
         </FieldWrapper>
-
-        <FieldWrapper label="Horario preferido para una llamada con el equipo" hint="Opcional">
-          <input
-            type="text"
-            style={{ ...inputStyle, resize: undefined }}
-            placeholder="Ej. Mañanas entre 10-12h, o tardes después de las 16h"
-            value={(data as any).preferredCallTime ?? ''}
-            onChange={(e) => onChange('preferredCallTime' as any, e.target.value)}
-          />
-        </FieldWrapper>
       </div>
 
     </div>

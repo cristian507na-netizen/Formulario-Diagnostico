@@ -23,7 +23,6 @@ const inputStyle = {
 const teamSizes = ['Solo yo', '2-5 personas', '6-20 personas', '21-50 personas', 'Más de 50'];
 const businessStages = ['Arrancando (menos de 1 año)', 'Creciendo (1-3 años)', 'Consolidando (3-7 años)', 'Expandiendo (más de 7 años)'];
 const sectors = ['Servicios profesionales', 'Tecnología / SaaS', 'Retail / Comercio', 'Salud / Bienestar', 'Educación / Formación', 'Construcción / Inmobiliaria', 'Hostelería / Restauración', 'Industria / Manufactura', 'Otro'];
-const founderDependency = ['Todo depende de mí', 'La mayoría pasa por mí', 'Tengo equipo que gestiona áreas', 'Tengo dirección delegada'];
 
 export default function FormPage1({ data, onChange }: Props) {
   return (
@@ -89,7 +88,13 @@ export default function FormPage1({ data, onChange }: Props) {
       </FieldWrapper>
 
       <FieldWrapper label="¿Qué parte del negocio depende directamente de usted?" hint="Piense en qué pasaría si no estuviera disponible 2 semanas">
-        <RadioGroup options={founderDependency} value={data.founderDependency ?? ''} onChange={(v) => onChange('founderDependency', v)} />
+        <textarea
+          style={{ ...inputStyle, minHeight: 64 }}
+          placeholder="Ej. Las ventas y la relación con clientes clave dependen de mí. Si no estoy, nadie cierra ni gestiona incidencias..."
+          rows={2}
+          value={data.founderDependency ?? ''}
+          onChange={(e) => onChange('founderDependency', e.target.value)}
+        />
       </FieldWrapper>
 
       <FieldWrapper label="¿Cuál es el principal problema que frena el crecimiento hoy?" hint="Sea directo - no hay respuesta incorrecta">

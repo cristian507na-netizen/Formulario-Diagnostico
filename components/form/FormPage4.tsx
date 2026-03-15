@@ -97,10 +97,6 @@ export default function FormPage4({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Solo tenemos un formulario de contacto en la web. No hay lead magnet ni incentivo. Son 4 campos..." rows={3} value={(data as any).leadCaptureDesc ?? ''} onChange={(e) => onChange('leadCaptureDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="Describa qué ocurre exactamente con un lead desde que entra hasta que llega a ventas">
-          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Llega al email general, alguien lo reenvía al comercial, el comercial lo llama cuando puede. A veces pasan 2 días..." rows={3} value={(data as any).leadHandlingDesc ?? ''} onChange={(e) => onChange('leadHandlingDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
         <FieldWrapper label="¿Se califica el lead antes de pasarlo a ventas? ¿Cómo?">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. No hay calificación formal. Cualquier lead que entra se pasa directamente a ventas sin filtro previo..." rows={2} value={(data as any).leadScoring ?? ''} onChange={(e) => onChange('leadScoring' as any, e.target.value)} />
         </FieldWrapper>

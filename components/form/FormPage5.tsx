@@ -102,7 +102,7 @@ export default function FormPage5({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. El técnico senior es el único que sabe hacer la parte de configuración avanzada. Si no está disponible ese paso se bloquea completamente..." rows={2} value={(data as any).tacitKnowledgeDesc ?? ''} onChange={(e) => onChange('tacitKnowledgeDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Cómo se entrega el trabajo al cliente? ¿Dónde se guarda y cómo se comunica la entrega?">
+        <FieldWrapper label="¿Cómo se entrega el trabajo/servicio al cliente? ¿Dónde se guarda y cómo se comunica la entrega?">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Enviamos un email con un link a Drive. A veces hay archivos en email, otros en Drive y otros en Notion. No hay una ubicación estándar..." rows={2} value={(data as any).deliveryProcessDesc ?? ''} onChange={(e) => onChange('deliveryProcessDesc' as any, e.target.value)} />
         </FieldWrapper>
 

@@ -93,6 +93,7 @@ export interface FormData {
   salesSuccessDesc: string;
 
   // Página 4 - Marketing
+  idealClientDesc: string;
   valuePropositionDesc: string;
   differentiationDesc: string;
   mktSalesAlignmentDesc: string;
@@ -203,7 +204,7 @@ export const initialFormData: FormData = Object.fromEntries(
     'leadConversionTracking','salesMetricsDesc','revenueVisibility','dealHistoryDesc',
     'conversationsRegistrationDesc','dataIntegrationDesc','teamTransitionDesc','dataAccessDesc',
     'salesScaleDesc','salesScaleHiring','salesPainDesc','salesCatastrophicRisk',
-    'salesGoal12m','salesSuccessDesc','valuePropositionDesc','differentiationDesc',
+    'salesGoal12m','salesSuccessDesc','idealClientDesc','valuePropositionDesc','differentiationDesc',
     'mktSalesAlignmentDesc','ticketCycleDesc','channelMapDesc','editorialCalendarDesc',
     'channelOwnershipDesc','channelRoiDesc','leadToSalesProcess','leadCaptureDesc',
     'leadHandlingDesc','leadScoring','nurtingStatus','mktToSalesHandoffDesc','mktSalesFeedbackDesc',

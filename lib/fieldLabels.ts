@@ -95,6 +95,7 @@ export const FIELD_LABELS: Record<keyof FormData, string> = {
   salesSuccessDesc: '¿Cómo definirán el éxito de esta auditoría de ventas? ¿Qué tendría que ser diferente?',
 
   // Página 4 – Marketing
+  idealClientDesc: '¿Cuál es el perfil de su cliente ideal?',
   valuePropositionDesc: '¿Cuál es su propuesta de valor real? ¿Qué problema concreto resuelven y cómo lo describirían en una frase?',
   differentiationDesc: '¿Qué los diferencia realmente de la competencia? ¿Es un posicionamiento claro o es genérico?',
   mktSalesAlignmentDesc: '¿Marketing y ventas están alineados en quién es el cliente ideal? ¿O cada área tiene una visión diferente?',

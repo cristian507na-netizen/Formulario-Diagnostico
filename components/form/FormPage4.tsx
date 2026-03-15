@@ -47,6 +47,10 @@ export default function FormPage4({ data, onChange }: Props) {
       <div style={block}>
         {blockTag('Contexto y posicionamiento')}
 
+        <FieldWrapper label="¿Cuál es el perfil de su cliente ideal?" hint="Sector, tamaño, cargo, problema principal que tiene y por qué les compra a ustedes">
+          <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Dueños de pymes de entre 5 y 30 empleados en el sector servicios, que facturan entre 200k y 1M al año, están saturados operativamente y no tienen tiempo para sistematizar su negocio..." rows={3} value={(data as any).idealClientDesc ?? ''} onChange={(e) => onChange('idealClientDesc' as any, e.target.value)} />
+        </FieldWrapper>
+
         <FieldWrapper label="¿Cuál es su propuesta de valor real? ¿Qué problema concreto resuelven y cómo lo describirían en una frase?">
           <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. Ayudamos a pymes de retail a reducir devoluciones un 40% automatizando el proceso de atención postventa..." rows={3} value={(data as any).valuePropositionDesc ?? ''} onChange={(e) => onChange('valuePropositionDesc' as any, e.target.value)} />
         </FieldWrapper>

@@ -122,7 +122,7 @@ export default function FormPage4({ data, onChange }: Props) {
           <textarea style={{ ...inputStyle, minHeight: 72 }} placeholder="Ej. No hay estrategia formal. Publicamos lo que parece interesante o lo que pide el fundador. No pensamos en si el contenido atrae, convierte o retiene..." rows={3} value={(data as any).contentStrategyDesc ?? ''} onChange={(e) => onChange('contentStrategyDesc' as any, e.target.value)} />
         </FieldWrapper>
 
-        <FieldWrapper label="¿Qué tipo de contenido producen y cuál convierte mejor según su experiencia? ¿Miden qué piezas generan ventas?">
+        <FieldWrapper label="¿Qué tipo de contenido producen y cuál convierte mejor según su experiencia? ¿Miden qué genera ventas o atrae mejores clientes?">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Producimos posts en Instagram y algún artículo de blog. Creemos que los casos de éxito funcionan bien pero no lo medimos formalmente..." rows={2} value={(data as any).contentPerformanceDesc ?? ''} onChange={(e) => onChange('contentPerformanceDesc' as any, e.target.value)} />
         </FieldWrapper>
 

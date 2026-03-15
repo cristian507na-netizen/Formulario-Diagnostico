@@ -37,7 +37,6 @@ const blockTag = (label: string, color = '#38bdf8') => (
 );
 
 const onboardingStatus = ['Sí, documentado y estandarizado', 'Sí, pero informal y variable', 'Parcial, algunos pasos documentados', 'No existe onboarding formal'];
-const clientReviewRounds = ['1 ronda', '2 rondas', '3 rondas o más', 'Sin límite definido', 'Depende del cliente'];
 const satisfactionMeasure = ['NPS formal y periódico', 'Encuestas esporádicas', 'Feedback informal', 'No medimos satisfacción'];
 
 export default function FormPage5({ data, onChange }: Props) {
@@ -104,10 +103,6 @@ export default function FormPage5({ data, onChange }: Props) {
 
         <FieldWrapper label="¿Cómo se entrega el trabajo/servicio al cliente? ¿Dónde se guarda y cómo se comunica la entrega?">
           <textarea style={{ ...inputStyle, minHeight: 60 }} placeholder="Ej. Enviamos un email con un link a Drive. A veces hay archivos en email, otros en Drive y otros en Notion. No hay una ubicación estándar..." rows={2} value={(data as any).deliveryProcessDesc ?? ''} onChange={(e) => onChange('deliveryProcessDesc' as any, e.target.value)} />
-        </FieldWrapper>
-
-        <FieldWrapper label="¿Cuántas rondas de revisión del cliente hay en promedio?">
-          <RadioGroup options={clientReviewRounds} value={(data as any).clientReviewRounds ?? ''} onChange={(v) => onChange('clientReviewRounds' as any, v)} columns={2} />
         </FieldWrapper>
 
         <FieldWrapper label="¿Cómo se gestionan los cambios o solicitudes fuera del alcance original?">
